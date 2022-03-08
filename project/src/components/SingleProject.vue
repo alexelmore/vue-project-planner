@@ -1,5 +1,5 @@
 <template>
-  <div class="project">
+  <div class="project" :class="{ complete: project.complete }">
     <div class="actions">
       <h3 @click="toggleDetails">{{ project.title }}</h3>
       <div class="icons">
@@ -9,7 +9,7 @@
         <span @click="deleteProject" class="material-icons">
           delete
         </span>
-        <span @click="toggleComplete" class="material-icons">
+        <span @click="toggleComplete" class="material-icons tick">
           done
         </span>
       </div>
