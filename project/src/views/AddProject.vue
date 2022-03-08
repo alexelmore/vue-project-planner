@@ -45,10 +45,11 @@ form {
   background: white;
   padding: 20px;
   border-radius: 10px;
+  border: 2px solid #00ce89;
 }
 label {
   display: block;
-  color: #bbb;
+  color: rgb(116, 113, 113);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
