@@ -2,6 +2,17 @@
   <div class="project">
     <div class="actions">
       <h3 @click="toggleDetails">{{ project.title }}</h3>
+      <div class="icons">
+        <span class="material-icons">
+          edit
+        </span>
+        <span @click="deleteProject" class="material-icons">
+          delete
+        </span>
+        <span class="material-icons">
+          done
+        </span>
+      </div>
     </div>
     <div v-if="showDetails" class="details">
       <p>{{ project.details }}</p>
@@ -16,12 +27,21 @@ export default {
   data() {
     return {
       showDetails: false,
+      url: "http://localhost:3000/projects/" + this.project.id,
     };
   },
   methods: {
     // Function to toggle showDetails data property
     toggleDetails() {
       this.showDetails = !this.showDetails;
+    },
+    // Function that deletes a project
+    deleteProject() {
+      // Send a delete request to our json db
+      // After deleting a job, emit a custom event to the Home Component, notifying it that a job has been deleting
+      fetch(this.url, { method: "DELETE" })
+        .then(() => this.$emit("delete", this.project.id))
+        .catch((error) => console.log(error.message));
     },
   },
 };
