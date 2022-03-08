@@ -2,14 +2,14 @@
   "projects": [
     {
       "id": 1,
-      "title": "Work On React",
+      "title": "Work On React Hooks",
       "details": "Learn more about React Hooks, including the context API",
       "complete": false
     },
     {
       "id": 2,
-      "title": "Work On Vue",
-      "details": "Learn more about Vue CLI 3, including the composition API",
+      "title": "Work On Vue Composition API",
+      "details": "Learn more about Vue CLI 3, including the composition API. Complete all my Vue Udemy courses.",
       "complete": true
     },
     {

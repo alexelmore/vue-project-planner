@@ -21,18 +21,19 @@ export default {
   methods: {
     // Function that handles form submission
     handleSubmit() {
-      // Setup for a POST fetch request, adding a new project to our json db
-      // Once a new project is successfully added, redirect user back to the home page
+      // Object that will be sent as the body for our POST Fetch Request
       let project = {
         title: this.title,
         details: this.details,
         complete: false,
       };
+      // Setup for a POST fetch request, adding a new project to our json db
       fetch(this.url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(project),
       })
+        // Once a new project is successfully added, redirect user back to the home page
         .then(() => this.$router.push("/"))
         .catch((error) => console.log(error.message));
     },
