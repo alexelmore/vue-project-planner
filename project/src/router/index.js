@@ -15,8 +15,8 @@ const routes = [
     component: AddProject,
   },
   {
-    path: "/edit",
-    name: "Edit",
+    path: "/projects/:id",
+    name: "EditProject",
     component: EditProject,
   },
   // Not found 404 catch all
