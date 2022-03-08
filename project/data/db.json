@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Work On React",
+      "details": "Learn more about React Hooks, including the context API",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Work On Vue",
+      "details": "Learn more about Vue CLI 3, including the composition API",
+      "complete": true
+    }
+  ]
+}

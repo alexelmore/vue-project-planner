@@ -10,13 +10,13 @@ const routes = [
     component: Home,
   },
   {
-    path: "/add-project",
-    name: "add-project",
+    path: "/add",
+    name: "Add",
     component: AddProject,
   },
   {
-    path: "/edit-project",
-    name: "edit-project",
+    path: "/edit",
+    name: "Edit",
     component: EditProject,
   },
   // Not found 404 catch all
