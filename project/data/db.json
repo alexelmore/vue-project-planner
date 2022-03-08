@@ -11,6 +11,18 @@
       "title": "Work On Vue",
       "details": "Learn more about Vue CLI 3, including the composition API",
       "complete": true
+    },
+    {
+      "title": "Java Practice",
+      "details": "Practice and review Java 11 features.",
+      "complete": false,
+      "id": 3
+    },
+    {
+      "title": "AEM Review",
+      "details": "Study AEM to prep for AEM Developer Certification Exam. ",
+      "complete": false,
+      "id": 4
     }
   ]
 }
