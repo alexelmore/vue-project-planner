@@ -2,7 +2,11 @@
   <div class="home">
     <div v-if="projects.length">
       <div v-for="project in projects" :key="project.id">
-        <SingleProject :project="project" @delete="handleDelete" />
+        <SingleProject
+          :project="project"
+          @delete="handleDelete"
+          @complete="handleComplete"
+        />
       </div>
     </div>
     <div v-else>Loading Projects...</div>
@@ -34,9 +38,14 @@ export default {
       });
   },
   methods: {
-    // Function that listens for emitted events coming from SingleProject component and deletes a project from the projects array accordingly
+    // Function that listens for an emitted delete event from the SingleProject component and deletes a project from the projects array accordingly
     handleDelete(id) {
       this.projects = this.projects.filter((project) => project.id !== id);
+    },
+    // Function that listens for an emitted complete event from the SingleProject component and updates the given project's completed property accordingly
+    handleComplete(id) {
+      let p = this.projects.find((project) => project.id === id);
+      p.complete = !p.complete;
     },
   },
 };

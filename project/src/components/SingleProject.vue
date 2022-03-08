@@ -9,7 +9,7 @@
         <span @click="deleteProject" class="material-icons">
           delete
         </span>
-        <span class="material-icons">
+        <span @click="toggleComplete" class="material-icons">
           done
         </span>
       </div>
@@ -41,6 +41,16 @@ export default {
       // After deleting a job, emit a custom event to the Home Component, notifying it that a job has been deleting
       fetch(this.url, { method: "DELETE" })
         .then(() => this.$emit("delete", this.project.id))
+        .catch((error) => console.log(error.message));
+    },
+    // Function for updating a project's completed property
+    toggleComplete() {
+      fetch(this.url, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ complete: !this.project.complete }),
+      })
+        .then(() => this.$emit("complete", this.project.id))
         .catch((error) => console.log(error.message));
     },
   },
