@@ -80,4 +80,8 @@ form button {
   border-radius: 6px;
   font-size: 16px;
 }
+form button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
 </style>
