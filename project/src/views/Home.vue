@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <div v-if="projects.length">
-      <div v-for="project in projects" :key="project.id">
+    <FilterNav :current="current" @status="current = $event" />
+
+    <div v-if="filteredProjects.length">
+      <div v-for="project in filteredProjects" :key="project.id">
         <SingleProject
           :project="project"
           @delete="handleDelete"
@@ -15,14 +17,16 @@
 
 <script>
 import SingleProject from "../components/SingleProject.vue";
+import FilterNav from "../components/FilterNav.vue";
 export default {
   name: "Home",
   data() {
     return {
       projects: [],
+      current: "all",
     };
   },
-  components: { SingleProject },
+  components: { SingleProject, FilterNav },
   // Mounted hook for sending out Get Fetch request to json DB as soon as component is mounted to the DOM.
   mounted() {
     // Setup url and GET fetch request going to our json db file
@@ -46,6 +50,17 @@ export default {
     handleComplete(id) {
       let p = this.projects.find((project) => project.id === id);
       p.complete = !p.complete;
+    },
+  },
+  computed: {
+    // Computed function that depends on our projects and current data properties and filters the projects accordingly
+    filteredProjects() {
+      if (this.current === "ongoing") {
+        return this.projects.filter((project) => project.complete !== true);
+      } else if (this.current === "completed") {
+        return this.projects.filter((project) => project.complete === true);
+      }
+      return this.projects;
     },
   },
 };
